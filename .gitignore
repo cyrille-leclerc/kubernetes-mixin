@@ -4,3 +4,5 @@ dashboards_out
 vendor
 tmp
 .vale
+
+.claude/settings.local.json

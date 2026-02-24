@@ -158,3 +158,4 @@ Use `lib/utils.libsonnet`'s `mapRuleGroups` to add extra annotations to all aler
 
 - `docs/prometheus2otel/metrics-inventory.md` — complete inventory of every Prometheus metric used in alerts, rules, and dashboards, grouped by source component (cAdvisor, kube-state-metrics, kubelet, node-exporter, control-plane components, windows-exporter, recording rule outputs)
 - `docs/prometheus2otel/otel-mapping.md` — mapping to `kubeletstatsreceiver` / `k8sclusterreceiver` / `hostmetricsreceiver` metrics and OTel semantic conventions, including gap analysis and misalignment analysis between receiver implementations and the spec
+- `docs/prometheus2otel/migration.md` — per-dashboard migration ranking (Tier 1–4) by OTel native coverage, with recommended migration order and cross-cutting concerns (attribute mapping, workload topology, receiver-vs-semconv naming)

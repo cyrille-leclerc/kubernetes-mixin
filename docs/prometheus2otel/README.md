@@ -59,3 +59,22 @@ Key findings:
   attribute names that differ systematically from the semconv specification
   (underscore vs. dot separators, suffix vs. infix resource-type segments,
   shorthand `direction` vs. namespaced `network.io.direction`).
+
+### `migration.md`
+
+A per-dashboard migration ranking that answers "which dashboards can be migrated
+to OTel native receivers with the fewest mapping problems?".
+
+Dashboards are ranked in four tiers:
+
+1. **Tier 1** (`persistentvolumesusage`) — ~85% coverage; all volume stats panels
+   map directly to `kubeletstatsreceiver`.
+2. **Tier 2** (network dashboards) — ~55% coverage; byte-rate panels covered,
+   packet/drop counters require `prometheusreceiver` or stubs.
+3. **Tier 3** (`k8s-resources-*`) — ~30–40% coverage; CPU/memory/requests covered,
+   CPU throttling and node-allocatable panels blocked.
+4. **Tier 4** (kubelet, apiserver, scheduler, controller-manager, proxy, windows) —
+   0% native coverage; all metrics require `prometheusreceiver`.
+
+Also includes the recommended migration order and cross-cutting concerns
+(attribute name mapping, workload topology processor, receiver-vs-semconv naming).
